@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+
+<body>
+    <form action="#" name="login">
+        <label for="">Name :</label><br>
+        <input type="text" name="name" id=""><br><br>
+        <label for="">Address :</label><br>
+        <input type="text" name="address" id=""><br><br>
+        <input type="reset" value="Submit" onclick="my_form()">
+        <input type="reset" value="Reset">
+
+    </form>
+
+    <script>
+        function my_form() {
+            const name = document.login.name.value;
+            const address = document.login.address.value;
+            const doc = open("", "", "width=500px, height=600px");
+            with (doc.document) {
+                write("Name: " + name);
+                write("<br>");
+                write("Address: " + address);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
