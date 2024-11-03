@@ -132,12 +132,13 @@
             for (i = 0; i < document.login.gen.length; i++) {
                 if (document.login.gen[i].checked) {
                     gender = document.login.gen[i].value;
+
                 }
             }
             let qualification = '';
             for (i = 0; i < document.login.education.length; i++) {
                 if (document.login.education[i].checked) {
-                    qualification += document.login.education[i].value+ " ";
+                    qualification += document.login.education[i].value + ' ';
                 }
             }
 
