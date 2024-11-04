@@ -13,6 +13,11 @@
     <div>Name<br />
       <input type="text" name="txtName">
     </div>
+    <div>
+      <label for="myEmail">Email</label><br>
+      <input type="email" name="myEmail" id="" onblur="checkEmail()">
+      <span id="emailmsg" class="display-block"></span>
+    </div>
 
     <div>Address<br />
       <textarea name="txtAddress"></textarea>
@@ -28,15 +33,15 @@
     </div>
 
     <div>Sex<br />
-      Male<input type="radio" name="rdoSex" value="Male" >
-      Female<input type="radio" name="rdoSex" value="Female" >
+      Male<input type="radio" name="rdoSex" value="Male">
+      Female<input type="radio" name="rdoSex" value="Female">
     </div>
 
     <div>Subject<br />
-      English<input type="checkbox" value="English" name="chkSubject" >
-      Bengali<input type="checkbox" value="Bengali" name="chkSubject" >
+      English<input type="checkbox" value="English" name="chkSubject">
+      Bengali<input type="checkbox" value="Bengali" name="chkSubject">
 
-      Math<input type="checkbox" value="Math" name="chkSubject" >
+      Math<input type="checkbox" value="Math" name="chkSubject">
     </div>
 
     <div>
@@ -45,18 +50,44 @@
   </form>
 
   <script>
+    function checkEmail() {
+      var email = document.getElementById("myEmail");
+      var emailNaN = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/;
+      if (!emailNaN.test(email.value)) {
+        alert("please inter valid email");
+        document.getElementById('myEmail').style.borderColor = "#FF0000";
+        return false;
+      }
+      else {
+        document.getElementById('myEmail').style.borderColor = "#228B22";
+
+      }
+      return true;
+    }
+
     function dyn_window() {
       const txtName = document.login.txtName.value;
       const txtAddress = document.login.txtAddress.value;
       const txtCourse = document.login.txtCourse.value;
+      const txtEmail = document.login.myEmail.value;
 
 
       const doc = open('', '', 'width=500px, height=600px');
 
+      let gender = "";
+      for (let i = 0; i < document.login.rdoSex.length; i++) {
+        if (document.login.rdoSex[i].checked) {
+          gender += document.login.rdoSex[i].value;
+        }
+      }
+
       with (doc.document) {
         write("Name: " + txtName + "<br>");
+        write("Email: " + txtEmail + "<br>")
         write("Address: " + txtAddress + "<br>");
         write("Course: " + txtCourse + "<br>");
+        write("Gender: " + gender + "<br>");
+
       }
 
     }
