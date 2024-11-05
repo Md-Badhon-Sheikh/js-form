@@ -1,11 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Form</title>
+    <style>
+        table {
+            margin: auto;
+            margin-top: 30px;
+            background-color: #eb9b9b;
+            padding: 38px 25px;
+            border-radius: 10px;
+            box-shadow: 5px 3px 8px rgb(112, 47, 47);
+
+        }
+
+        table label {
+            font-size: 18px;
+            margin-right: 30px;
+        }
+
+        table input,
+        textarea {
+            margin-bottom: 10px;
+            font-size: 16px;
+            padding: 3px 10px;
+            border-radius: 5px;
+
+        }
+
+        table textarea {
+            height: 20px;
+        }
+
+        table select {
+            padding: 2px 16px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .btn {
+            margin-top: 20px;
+            border: none;
+            background-color: #8d2020;
+            padding: 8px 16px;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            color: black;
+            background-color: #fff;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <table>
+        <form action="#" name="login">
+            <h2 style="text-align: center;">Student Information</h2>
+            <tr>
+                <td>
+                    <label for="">ID :</label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Enter Your ID" name="id">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Name :</label>
+                </td>
+                <td>
+                    <textarea id="" placeholder="Enter Your Name" name="name"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Email :</label>
+                </td>
+                <td>
+                    <input type="email" name="email" id="myEmail" onblur="checkEmail">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Round :</label>
+                </td>
+                <td>
+                    <select name="round" id="">
+                        <option value="62">62</option>
+                        <option value="61">61</option>
+                        <option value="60">60</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Gender :</label>
+                </td>
+                <td>
+                    <input type="radio" name="gen" id="" value="Male">
+                    <label for="">Male</label>
+
+                    <input type="radio" name="gen" id="" value="Female">
+                    <label for="">Female</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Education :</label>
+                </td>
+                <td>
+                    <input type="checkbox" name="education" id="" value="SSC">
+                    <label for="">SSC</label>
+                    <input type="checkbox" name="education" id="" value="HSC">
+                    <label for="">HSC</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="btn" type="reset" value="Submit" onclick="my_form()">
+                </td>
+                <td>
+                    <input class="btn" type="reset" value="Reset">
+                </td>
+            </tr>
+            
+        </form>
+    </table>
+    <script>
+        function my_form() {
+            const id = document.login.id.value;
+            const name = document.login.name.value;
+            const email = document.login.email.value;
+
+            let doc = open('', '', 'width=300px, height=300px');
+
+            with (doc.document) {
+                write("<html>");
+                write("<head><title>" + title + "</title></head>");
+                write("<body style='background-color:red'>");
+                write("<div style='border:1px solid gray'>Name:" + name + "<br/>");
+                write("ID : " + id + "<br>");
+                write("Name : " +name+ "<br>");
+                write("Email : " +email+ "<br>");
+                write("<input type='button' value='Close me' onclick='self.close();' />");
+            }
+        }
+    </script>
+
 </body>
+
 </html>
